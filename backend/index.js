@@ -1,0 +1,13 @@
+const express=require('express')
+const app=express()
+const bp=require('body-parser')
+const cors=require('cors')
+const contactModel=require('./models/CustomerModel')
+const jwt=require('jsonwebtoken')
+app.use(bp.json())
+app.use(cors())
+const createContact=require('./controllers/CreateUser')
+const auth=require('./Auth')
+app.use('/',createContact)
+
+app.listen(3002,()=>console.log('server started'))
